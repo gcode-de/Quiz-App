@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/57fe8f6ae1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1><a href="./index.html">Quiz App</a></h1>
+    </header>
+    <main class="main">
+      <article class="article">
+        <div class="bookmark"><i class="fas fa-bookmark"></i></div>
+        <div class="headline">What property flips the axes in flexbox?</div>
+        <button>show answer</button>
+        <div class="answer">I can't really tell. Sorry!</div>
+        <ul class="tags">
+          <li class="tag">html</li>
+          <li class="tag">flexbox</li>
+          <li class="tag">css</li>
+        </ul>
+      </article>
+      <article class="article article-fav">
+        <div class="bookmark"><i class="fas fa-bookmark"></i></div>
+        <div class="headline">What property axes the flip in flexbox?</div>
+        <button>Show answer</button>
+        <div class="answer">Also not sure. Sorry!</div>
+        <ul class="tags">
+          <li class="tag">html</li>
+          <li class="tag">flexbox</li>
+          <li class="tag">css</li>
+        </ul>
+      </article>
+    </main>
+    <footer class="footer">
+      <menu>
+        <ul>
+          <li>
+            <a href="./index.html"><i class="fa-solid fa-house"></i></a>
+          </li>
+          <li>
+            <a href="./favs.html"><i class="fas fa-bookmark"></i></a>
+          </li>
+          <li>
+            <a href="./profile.html"><i class="fa-solid fa-user"></i></a>
+          </li>
+        </ul>
+      </menu>
+    </footer>
+    <script>
+      const showAnswerButtons = document.querySelectorAll("button");
+      showAnswerButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          const answer = this.nextElementSibling;
+          answer.style.display == "none"
+            ? (answer.style.display = "block")
+            : (answer.style.display = "none");
+        });
+      });
+
+      const bookmarkIcons = document.querySelectorAll(".bookmark");
+      bookmarkIcons.forEach(function (icon) {
+        icon.addEventListener("click", function () {
+          const article = this.parentElement;
+          article.classList.contains("article-fav")
+            ? article.classList.remove("article-fav")
+            : article.classList.add("article-fav");
+        });
+      });
+    </script>
+  </body>
+</html>
