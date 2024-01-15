@@ -169,3 +169,11 @@ menu ul li {
 menu ul li:hover {
   background-color: #979797;
 }
+
+.user-image {
+  display: inline;
+}
+.user-name {
+  font-size: 2rem;
+  display: inline;
+}
