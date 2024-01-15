@@ -44,7 +44,7 @@ function displayQuestions(questions, target) {
   for (question of questions) {
     target.innerHTML += `
     <article class="article ${question.bookmarked ? "article-fav" : ""}">
-        <div class="bookmark"><i class="fas fa-bookmark"></i></div>
+        <div class="bookmark" aria-label="bookmark"><i class="fas fa-bookmark"></i></div>
         <div class="headline">${question.headline}</div>
         <button>show answer</button>
         <div class="answer">${question.answer}</div>
