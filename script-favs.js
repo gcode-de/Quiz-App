@@ -21,7 +21,7 @@ async function init() {
   showAnswerButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       const answer = this.nextElementSibling;
-      answer.style.display == "none"
+      window.getComputedStyle(answer).display === "none"
         ? (answer.style.display = "block")
         : (answer.style.display = "none");
     });
