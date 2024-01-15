@@ -16,8 +16,10 @@
     </header>
     <main class="main">
       <h2>- Your Profile -</h2>
-      <i class="fa-solid fa-user user-image"></i>
-      <div class="user-name">Your Name</div>
+      <div>
+        <i class="fa-solid fa-user user-image"></i>
+        <span class="user-name">Your Name<span/>
+      </div>
     </main>
     <footer class="footer">
       <menu>
@@ -34,26 +36,5 @@
         </ul>
       </menu>
     </footer>
-    <script>
-      const showAnswerButtons = document.querySelectorAll("button");
-      showAnswerButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          const answer = this.nextElementSibling;
-          answer.style.display == "none"
-            ? (answer.style.display = "block")
-            : (answer.style.display = "none");
-        });
-      });
-
-      const bookmarkIcons = document.querySelectorAll(".bookmark");
-      bookmarkIcons.forEach(function (icon) {
-        icon.addEventListener("click", function () {
-          const article = this.parentElement;
-          article.classList.contains("article-fav")
-            ? article.classList.remove("article-fav")
-            : article.classList.add("article-fav");
-        });
-      });
-    </script>
   </body>
 </html>
