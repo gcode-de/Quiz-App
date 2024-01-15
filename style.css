@@ -34,10 +34,11 @@ h2 {
 
 main {
   /* padding: 20px; */
-  margin: 120px 10px;
+  margin: 120px auto;
   display: flex;
   flex-direction: column;
   gap: 30px;
+  max-width: 400px;
 }
 
 article {
@@ -149,6 +150,7 @@ menu ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  background-color: rgb(225, 225, 225);
 }
 
 menu ul li {
@@ -162,10 +164,22 @@ menu ul li {
   font-size: 1.5rem;
   padding: 10px 0;
   border-top: 2px solid #1f1f1f;
+  max-width: 100px;
   & a {
     color: rgb(21, 21, 21);
   }
 }
 menu ul li:hover {
   background-color: #979797;
+}
+
+.user-image {
+  font-size: 2rem;
+  margin-right: 20ps;
+  /* display: inline; */
+  /* width: 100px; */
+}
+.user-name {
+  font-size: 2rem;
+  /* display: inline; */
 }

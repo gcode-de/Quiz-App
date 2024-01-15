@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "headline": "What does it do?",
+    "answer": "I don't know!",
+    "bookmarked": true
+  },
+  {
+    "id": 1,
+    "headline": "But what does it do, though?",
+    "answer": "I really don't know!",
+    "bookmarked": true
+  },
+  {
+    "id": 2,
+    "headline": "What does it look like?",
+    "answer": "I don't know either!",
+    "bookmarked": false
+  }
+]
