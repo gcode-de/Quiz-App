@@ -13,7 +13,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 5px 10px;
+  padding: 0.25rem 0.5rem;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -47,7 +47,7 @@ article {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0.75rem 1.25rem;
 }
 
 /* article:hover {
@@ -56,8 +56,8 @@ article {
 
 article .bookmark {
   position: absolute;
-  top: -10px;
-  right: 20px;
+  top: -0.75rem;
+  right: 1.25rem;
   z-index: 3;
   font-size: 2rem;
   color: #e3e3e3;
@@ -75,7 +75,7 @@ article .headline {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
 
 article button {
@@ -111,8 +111,8 @@ article .tags {
   justify-content: start;
   align-items: center;
   list-style-type: none;
-  gap: 5px;
-  padding-inline-start: 00px;
+  gap: 0.5rem;
+  padding-inline-start: 0;
   margin: 0;
   margin-top: 20px;
 }
@@ -162,9 +162,9 @@ menu ul li {
   list-style-type: none;
   background-color: rgb(225, 225, 225);
   font-size: 1.5rem;
-  padding: 10px 0;
+  padding: 0.75rem 0;
   border-top: 2px solid #1f1f1f;
-  max-width: 100px;
+  max-width: 7rem;
   & a {
     color: rgb(21, 21, 21);
   }
@@ -174,12 +174,34 @@ menu ul li:hover {
 }
 
 .user-image {
-  font-size: 2rem;
-  margin-right: 20ps;
+  font-size: 3rem;
+  margin-right: 1.25rem;
   /* display: inline; */
   /* width: 100px; */
 }
 .user-name {
   font-size: 2rem;
   /* display: inline; */
+}
+
+.counters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 0.75rem;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.counter {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+}
+
+.counter i {
+  margin-right: 0.5rem;
 }
