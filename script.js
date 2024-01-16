@@ -31,9 +31,7 @@ async function init() {
   bookmarkIcons.forEach(function (icon) {
     icon.addEventListener("click", function () {
       const article = this.parentElement;
-      article.classList.contains("article-fav")
-        ? article.classList.remove("article-fav")
-        : article.classList.add("article-fav");
+      article.classList.toggle("article-fav");
     });
   });
 }
