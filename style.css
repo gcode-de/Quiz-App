@@ -107,9 +107,6 @@ article .answer::after {
 article .answer-link {
   font-size: 0.75rem;
 }
-article .answer-link::before {
-  content: "Link: ";
-}
 
 article .tags {
   align-self: flex-start;
