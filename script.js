@@ -41,17 +41,22 @@ async function init() {
 init();
 
 function displayQuestions(questions, target) {
+  //generate tags
   for (question of questions) {
+    let tagsHTML = "";
+    for (tag of question.tags) {
+      tagsHTML += `<li class="tag">${tag}</li>`;
+    }
+
     target.innerHTML += `
     <article class="article ${question.bookmarked ? "article-fav" : ""}">
         <div class="bookmark" aria-label="bookmark"><i class="fas fa-bookmark"></i></div>
         <div class="headline">${question.headline}</div>
         <button>show answer</button>
         <div class="answer">${question.answer}</div>
+        <a href="${question.link}" class="answer-link">${question.link}</a>
         <ul class="tags">
-          <li class="tag">html</li>
-          <li class="tag">flexbox</li>
-          <li class="tag">css</li>
+        ${tagsHTML}
         </ul>
       </article>
 `;

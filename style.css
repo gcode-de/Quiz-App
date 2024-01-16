@@ -104,6 +104,13 @@ article .answer::after {
   content: '"';
 }
 
+article .answer-link {
+  font-size: 0.75rem;
+}
+article .answer-link::before {
+  content: "Link: ";
+}
+
 article .tags {
   align-self: flex-start;
   display: flex;

@@ -3,18 +3,24 @@
     "id": 0,
     "headline": "What the f*ck do DJ's actually do?",
     "answer": "Do do do do do",
+    "tags": ["music", "memes", "fancy"],
+    "link": "https://google.de",
     "bookmarked": true
   },
   {
     "id": 1,
     "headline": "Schau'n wir mal, was wird.",
     "answer": "Was wird.",
+    "tags": ["couplegoals", "memes", "funny"],
+    "link": "https://waswird.de",
     "bookmarked": true
   },
   {
     "id": 2,
     "headline": "Döp döp döp dö-dö döp döp döp",
     "answer": "Dö-döp döp döp, dö-dö döp döp döp (Scooter)",
+    "tags": ["music", "90s", "alwayshardcore"],
+    "link": "https://90s-calling.com",
     "bookmarked": false
   }
 ]
