@@ -27,16 +27,23 @@ addQuestionForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
-  console.log(data);
-  console.log(questions.length);
+
+  //set additional properties
   data.id = questions.length;
   data.bookmarked = false;
   data.addedByUser = true;
-  console.log(data);
+
+  // save question to file
+  addQuestion(data);
 
   addQuestionForm.reset();
   addQuestionForm.headline.focus();
 });
+
+//add new question to json file
+function addQuestion(question) {
+  console.log("Add question:", question);
+}
 
 //Display badges for bookmarks and added questions
 function displayBadges() {
