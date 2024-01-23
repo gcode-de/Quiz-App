@@ -25,8 +25,8 @@
               Nisi facere odit eveniet officia unde nam, facilis, labore iure nihil,
               cupiditate autem at cum beatae adipisci culpa est repellat. Excepturi, at.</p>
               <div class="counters">
-                <div class="counter"><i class="fa-solid fa-circle-question"></i> 12</div>
-                <div class="counter"><i class="fas fa-bookmark"></i> 4</div>
+                <div class="counter" js-data="counter-added-questions"><i class="fa-solid fa-circle-question"></i> <div js-data="added-questions-number" style="display: inline">12</div></div>
+                <div class="counter" js-data="counter-bookmarked-questions"><i class="fas fa-bookmark"></i> <div js-data="bookmarked-questions-number" style="display: inline">4</div></div>
               </div>
               <div class="settings">
                 <p><strong>Settings</strong><br>
@@ -35,6 +35,23 @@
                 </p>
 
               </div>
+              <section>
+                <form action="">
+                  <label for="">Frage*:
+                    <input type="text" name="headline" placeholder="Type the question" required></input>
+                  </label><br>
+                  <label for="">Antwort*:
+                    <input type="text" name="answer" placeholder="Type the answer" required></input>
+                  </label><br>
+                  <label for="">Link:
+                    <input type="text" name="link" type="url" placeholder="Provide a link (optional)"></input>
+                  </label><br>
+                  <label for="">Tags:
+                    <input type="text" name="tags" placeholder="Type tags separated by comma"></input>
+                  </label><br>
+                  <button name="submit">Submit</button>
+                </form>
+              </section>
         </main>
     <footer class="footer">
       <menu>
@@ -51,5 +68,6 @@
         </ul>
       </menu>
     </footer>
+    <script src="./js/profile.js"></script>
   </body>
 </html>
