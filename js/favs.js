@@ -31,6 +31,9 @@ async function init() {
       toggleBookmark(event);
       questions = saveBookmarkState(event, questions);
       saveQuestionsToLocalStorage(questions);
+
+      //refresh view
+      location.reload();
     });
   });
 }
