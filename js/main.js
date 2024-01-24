@@ -71,20 +71,16 @@ function toggleAnswerDisplay() {
 
 function toggleBookmark() {
   const article = this.parentElement;
-
-  article.classList.contains("article-fav")
-    ? article.classList.remove("article-fav")
-    : article.classList.add("article-fav");
+  article.classList.toggle("article-fav");
+  saveBookmarkState(article);
 }
 
-function saveBookmarkState(questions) {
-  const article = this.parentElement;
+function saveBookmarkState(article) {
   console.log(
     article,
     article.getAttribute("q-id"),
     questions[article.getAttribute("q-id")].bookmarked
   );
-  return questions;
 }
 
 function displayFooter(target) {

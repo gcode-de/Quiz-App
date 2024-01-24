@@ -16,12 +16,12 @@ async function init() {
   displayQuestions(questions, mainDiv);
 
   const showAnswerButtons = document.querySelectorAll("button");
-  showAnswerButtons.forEach(function (button) {
+  showAnswerButtons.forEach((button) => {
     button.addEventListener("click", toggleAnswerDisplay);
   });
 
   const bookmarkIcons = document.querySelectorAll(".bookmark");
-  bookmarkIcons.forEach(function (icon) {
+  bookmarkIcons.forEach((icon) => {
     icon.addEventListener("click", toggleBookmark);
     // icon.addEventListener("click", (questions = saveBookmarkState(questions)));
   });

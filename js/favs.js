@@ -19,12 +19,12 @@ async function init() {
   );
 
   const showAnswerButtons = document.querySelectorAll("button");
-  showAnswerButtons.forEach(function (button) {
+  showAnswerButtons.forEach((button) => {
     button.addEventListener("click", toggleAnswerDisplay);
   });
 
   const bookmarkIcons = document.querySelectorAll(".bookmark");
-  bookmarkIcons.forEach(function (icon) {
+  bookmarkIcons.forEach((icon) => {
     icon.addEventListener("click", toggleBookmark);
   });
 }
