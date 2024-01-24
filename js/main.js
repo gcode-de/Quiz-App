@@ -69,18 +69,20 @@ function toggleAnswerDisplay() {
   answer.style.display = isHidden ? "block" : "none";
 }
 
-function toggleBookmark() {
-  const article = this.parentElement;
+function toggleBookmark(event) {
+  const article = event.target.parentElement.parentElement;
   article.classList.toggle("article-fav");
-  saveBookmarkState(article);
 }
 
-function saveBookmarkState(article) {
-  console.log(
-    article,
-    article.getAttribute("q-id"),
-    questions[article.getAttribute("q-id")].bookmarked
-  );
+function saveBookmarkState(event, questions) {
+  const article = event.target.parentElement.parentElement;
+  const question = questions[article.getAttribute("q-id")];
+  question.bookmarked = !question.bookmarked;
+  return questions;
+  // console.log(
+  //   article.getAttribute("q-id"),
+  //   questions[article.getAttribute("q-id")].bookmarked
+  // );
 }
 
 function displayFooter(target) {

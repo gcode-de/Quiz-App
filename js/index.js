@@ -22,8 +22,11 @@ async function init() {
 
   const bookmarkIcons = document.querySelectorAll(".bookmark");
   bookmarkIcons.forEach((icon) => {
-    icon.addEventListener("click", toggleBookmark);
-    // icon.addEventListener("click", (questions = saveBookmarkState(questions)));
+    icon.addEventListener("click", (event) => {
+      toggleBookmark(event);
+      questions = saveBookmarkState(event, questions);
+      saveQuestionsToLocalStorage(questions);
+    });
   });
 }
 
