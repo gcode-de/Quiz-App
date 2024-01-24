@@ -1,10 +1,14 @@
 import {
   loadQuestionsFromLocalStorage,
   saveQuestionsToLocalStorage,
+  displayFooter,
   displayQuestions,
+  saveBookmarkState,
   toggleAnswerDisplay,
   toggleBookmark,
 } from "./main.js";
+
+displayFooter(document.body.querySelector("footer"));
 
 async function init() {
   const questions = await loadQuestionsFromLocalStorage();
