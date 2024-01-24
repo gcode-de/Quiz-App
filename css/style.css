@@ -5,6 +5,7 @@
   --color-light-gray: #e3e2e2;
   --color-medium-gray: #979797;
   --color-dark-gray: #2d2d2d;
+  --main-width: 400px;
 }
 * {
   box-sizing: border-box;
@@ -47,7 +48,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 400px;
+  max-width: var(--main-width);
 }
 
 footer {
@@ -85,7 +86,7 @@ menu ul a {
   font-size: 1.5rem;
   padding: 0.75rem 0;
   border-top: 2px solid var(--color-dark-gray);
-  max-width: 8.25rem;
+  max-width: calc(var(--main-width) / 3);
   cursor: pointer;
   color: var(--color-dark-gray);
 }

@@ -24,12 +24,15 @@ addQuestionForm.addEventListener("submit", (event) => {
   data.id = questions.length;
   data.bookmarked = false;
   data.addedByUser = true;
-  data.tags = data.tags ? data.tags.split(",").map((tag) => tag.trim()) : "";
+  data.tags = data.tags.trim()
+    ? data.tags.split(",").map((tag) => tag.trim())
+    : "";
   console.log(data);
 
   // save question to local storage
   addQuestionToQuestions(data);
 
+  //reset form
   addQuestionForm.reset();
   addQuestionForm.headline.focus();
 });
