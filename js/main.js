@@ -1,4 +1,4 @@
-async function loadQuestions() {
+async function loadQuestionsFromJSON() {
   try {
     const response = await fetch("questions.json");
     if (!response.ok) {
@@ -8,41 +8,40 @@ async function loadQuestions() {
     return data;
   } catch (error) {
     console.error("Fehler beim Laden der JSON-Datei:", error);
-    return []; // Sie können eine leere Liste oder einen anderen Standardwert verwenden
+    return [];
   }
 }
 
-async function init() {
-  const questions = await loadQuestions();
-  const mainDiv = document.querySelector("main");
-  displayQuestions(questions, mainDiv);
-
-  const showAnswerButtons = document.querySelectorAll("button");
-  showAnswerButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      const answer = this.nextElementSibling;
-      window.getComputedStyle(answer).display === "none"
-        ? (answer.style.display = "block")
-        : (answer.style.display = "none");
-    });
-  });
-
-  const bookmarkIcons = document.querySelectorAll(".bookmark");
-  bookmarkIcons.forEach(function (icon) {
-    icon.addEventListener("click", function () {
-      const article = this.parentElement;
-      article.classList.toggle("article-fav");
-    });
-  });
+function loadQuestionsFromLocalStorage() {
+  try {
+    const questionsJson = localStorage.getItem("questions");
+    if (questionsJson) {
+      return JSON.parse(questionsJson);
+    } else {
+      console.log("Keine Fragen im Local Storage gefunden. Lade aus Datei...");
+      return loadQuestionsFromJSON();
+    }
+  } catch (error) {
+    console.error("Fehler beim Laden der Fragen:", error);
+    return [];
+  }
 }
 
-init();
+function saveQuestionsToLocalStorage(questions) {
+  try {
+    const questionsJson = JSON.stringify(questions);
+    localStorage.setItem("questions", questionsJson);
+    console.log("Fragen wurden erfolgreich gespeichert.");
+  } catch (error) {
+    console.error("Fehler beim Speichern der Fragen:", error);
+  }
+}
 
 function displayQuestions(questions, target) {
   //generate tags
-  for (question of questions) {
+  for (let question of questions) {
     let tagsHTML = "";
-    for (tag of question.tags) {
+    for (let tag of question.tags) {
       tagsHTML += `<li class="tag">${tag}</li>`;
     }
 
@@ -60,3 +59,24 @@ function displayQuestions(questions, target) {
 `;
   }
 }
+
+function toggleAnswerDisplay() {
+  const answer = this.nextElementSibling;
+  const isHidden = window.getComputedStyle(answer).display === "none";
+  answer.style.display = isHidden ? "block" : "none";
+}
+
+function toggleBookmark() {
+  const article = this.parentElement;
+  article.classList.contains("article-fav")
+    ? article.classList.remove("article-fav")
+    : article.classList.add("article-fav");
+}
+
+export {
+  loadQuestionsFromLocalStorage,
+  saveQuestionsToLocalStorage,
+  displayQuestions,
+  toggleAnswerDisplay,
+  toggleBookmark,
+};

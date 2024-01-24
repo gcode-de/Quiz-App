@@ -1,21 +1,13 @@
-async function loadQuestions() {
-  try {
-    const response = await fetch("questions.json");
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Fehler beim Laden der JSON-Datei:", error);
-    return []; // Sie können eine leere Liste oder einen anderen Standardwert verwenden
-  }
-}
+import {
+  loadQuestionsFromLocalStorage,
+  saveQuestionsToLocalStorage,
+  displayQuestions,
+} from "./main.js";
 
 let questions = [];
 
 async function init() {
-  questions = await loadQuestions();
+  questions = await loadQuestionsFromLocalStorage();
   displayBadges();
 }
 
@@ -32,17 +24,21 @@ addQuestionForm.addEventListener("submit", (event) => {
   data.id = questions.length;
   data.bookmarked = false;
   data.addedByUser = true;
+  data.tags = data.tags.split(",").map((tag) => tag.trim());
+  console.log(data);
 
-  // save question to file
-  addQuestion(data);
+  // save question to local storage
+  addQuestionToQuestions(data);
 
   addQuestionForm.reset();
   addQuestionForm.headline.focus();
 });
 
-//add new question to json file
-function addQuestion(question) {
+//save new question to local storage
+function addQuestionToQuestions(question) {
   console.log("Add question:", question);
+  questions.push(question);
+  saveQuestionsToLocalStorage(questions);
 }
 
 //Display badges for bookmarks and added questions

@@ -20,9 +20,9 @@ article .bookmark {
   color: var(--color-light-gray);
 }
 
-article .bookmark:hover {
+/* article .bookmark:hover {
   color: var(--color-medium-gray);
-}
+} */
 
 .article-fav .bookmark {
   color: #c30000;

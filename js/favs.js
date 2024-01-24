@@ -1,60 +1,28 @@
-async function loadQuestions() {
-  try {
-    const response = await fetch("questions.json");
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Fehler beim Laden der JSON-Datei:", error);
-    return [];
-  }
-}
+import {
+  loadQuestionsFromLocalStorage,
+  saveQuestionsToLocalStorage,
+  displayQuestions,
+  toggleAnswerDisplay,
+  toggleBookmark,
+} from "./main.js";
 
 async function init() {
-  const questions = await loadQuestions();
+  const questions = await loadQuestionsFromLocalStorage();
   const mainDiv = document.querySelector("main");
-  displayQuestions(questions, mainDiv);
+  displayQuestions(
+    questions.filter((q) => q.bookmarked),
+    mainDiv
+  );
 
   const showAnswerButtons = document.querySelectorAll("button");
   showAnswerButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      const answer = this.nextElementSibling;
-      window.getComputedStyle(answer).display === "none"
-        ? (answer.style.display = "block")
-        : (answer.style.display = "none");
-    });
+    button.addEventListener("click", toggleAnswerDisplay);
   });
 
   const bookmarkIcons = document.querySelectorAll(".bookmark");
   bookmarkIcons.forEach(function (icon) {
-    icon.addEventListener("click", function () {
-      const article = this.parentElement;
-      article.classList.contains("article-fav")
-        ? article.classList.remove("article-fav")
-        : article.classList.add("article-fav");
-    });
+    icon.addEventListener("click", toggleBookmark);
   });
 }
 
 init();
-
-function displayQuestions(questions, target) {
-  favQuestions = questions.filter((q) => q.bookmarked);
-  for (question of favQuestions) {
-    target.innerHTML += `
-    <article class="article ${question.bookmarked ? "article-fav" : ""}">
-        <div class="bookmark" aria-label="bookmark"><i class="fas fa-bookmark"></i></div>
-        <div class="headline">${question.headline}</div>
-        <button>show answer</button>
-        <div class="answer">${question.answer}</div>
-        <ul class="tags">
-          <li class="tag">html</li>
-          <li class="tag">flexbox</li>
-          <li class="tag">css</li>
-        </ul>
-      </article>
-`;
-  }
-}
