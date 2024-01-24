@@ -67,9 +67,7 @@ function toggleAnswerDisplay() {
   const answer = this.nextElementSibling;
   const isHidden = window.getComputedStyle(answer).display === "none";
   answer.style.display = isHidden ? "block" : "none";
-  this.textContent === "show answer"
-    ? (this.textContent = "hide answer")
-    : (this.textContent = "show answer");
+  this.textContent = isHidden ? "hide answer" : "show answer";
 }
 
 function toggleBookmark(event) {
