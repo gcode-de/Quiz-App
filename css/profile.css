@@ -30,3 +30,8 @@
 .counter i {
   margin-right: 0.5rem;
 }
+
+form label {
+  /* width: 200px;
+  display: inline-block; */
+}

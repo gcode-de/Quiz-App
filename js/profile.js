@@ -24,7 +24,7 @@ addQuestionForm.addEventListener("submit", (event) => {
   data.id = questions.length;
   data.bookmarked = false;
   data.addedByUser = true;
-  data.tags = data.tags.split(",").map((tag) => tag.trim());
+  data.tags = data.tags ? data.tags.split(",").map((tag) => tag.trim()) : "";
   console.log(data);
 
   // save question to local storage
@@ -39,6 +39,7 @@ function addQuestionToQuestions(question) {
   console.log("Add question:", question);
   questions.push(question);
   saveQuestionsToLocalStorage(questions);
+  displayBadges();
 }
 
 //Display badges for bookmarks and added questions
