@@ -19,20 +19,20 @@
         
               <section>
                 <form action="" id="addQuestion">
-                  <label for="question">Frage*:
-                </label>
-                    <input name="question" class ="max150" placeholder="Type the question" maxlength="150" required />
+                  <label for="question">Your question*:
+                    <textarea name="question" class ="max150" cols="30" rows="4" placeholder="Type your question" maxlength="150" required></textarea>
                     <span hidden></span>
-                    <label for="answer">Antwort*:
-                    </label>
-                    <input name="answer" class ="max150" placeholder="Type the answer" maxlength="150" required />
-                    <span hidden></span>
-                  <label for="link">Link:
-                </label>
-                    <input type="text" name="link" type="url" placeholder="Provide a link (optional)"></input>
-                  <label for=tags">Tags:
                   </label>
+                    <label for="answer">Your answer*:
+                      <textarea name="answer" class ="max150" cols="30" rows="4" placeholder="Type your answer" maxlength="150" required></textarea>
+                      <span hidden></span>
+                    </label>
+                  <label for="link">Link:
+                    <input type="text" name="link" type="url" placeholder="Provide a link (optional)"></input>
+                  </label>
+                  <label for=tags">Tags:
                     <input type="text" name="tags" placeholder="Type tags separated by comma"></input>
+                  </label>
                   <button name="submit">Submit</button>
                 </form>
               </section>
