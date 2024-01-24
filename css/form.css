@@ -1,0 +1,27 @@
+#addQuestion {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  gap: 1rem;
+  & label {
+    width: 150px;
+    /* display: inline-block; */
+  }
+  & input,
+  textarea {
+    /* width: 190px; */
+    flex-grow: 1;
+    /* display: inline-block; */
+  }
+  & span {
+    text-align: end;
+    font-size: 0.75rem;
+    width: 100%;
+    margin-top: -15px;
+    margin-right: 5px;
+  }
+  & button {
+    /* justify-self: end; */
+    width: 150px;
+  }
+}

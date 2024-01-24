@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App - Profile</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/57fe8f6ae1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1><a href="./index.html">Quiz App</a></h1>
+    </header>
+    <main class="main">
+      <h2>- Add a question -</h2>
+        
+              <section>
+                <form action="" id="addQuestion">
+                  <label for="question">Frage*:
+                </label>
+                    <input name="question" class ="max150" placeholder="Type the question" maxlength="150" required />
+                    <span hidden></span>
+                    <label for="answer">Antwort*:
+                    </label>
+                    <input name="answer" class ="max150" placeholder="Type the answer" maxlength="150" required />
+                    <span hidden></span>
+                  <label for="link">Link:
+                </label>
+                    <input type="text" name="link" type="url" placeholder="Provide a link (optional)"></input>
+                  <label for=tags">Tags:
+                  </label>
+                    <input type="text" name="tags" placeholder="Type tags separated by comma"></input>
+                  <button name="submit">Submit</button>
+                </form>
+              </section>
+        </main>
+        <footer class="footer">
+        </footer>
+    <script src="./js/form.js" type="module"></script>
+  </body>
+</html>

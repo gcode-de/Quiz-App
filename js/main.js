@@ -16,6 +16,7 @@ function loadQuestionsFromLocalStorage() {
   try {
     const questionsJson = localStorage.getItem("questions");
     if (questionsJson) {
+      console.log("Fragen aus Local Storage geladen.");
       return JSON.parse(questionsJson);
     } else {
       console.log("Keine Fragen im Local Storage gefunden. Lade aus Datei...");
@@ -46,9 +47,11 @@ function displayQuestions(questions, target) {
     }
 
     target.innerHTML += `
-    <article class="article ${question.bookmarked ? "article-fav" : ""}">
+    <article q-id="${question.id}" class="article ${
+      question.bookmarked ? "article-fav" : ""
+    }">
         <div class="bookmark" aria-label="bookmark"><i class="fas fa-bookmark"></i></div>
-        <div class="headline">${question.headline}</div>
+        <div class="question">${question.question}</div>
         <button>show answer</button>
         <div class="answer">${question.answer}</div>
         <a href="${question.link}" class="answer-link">${question.link}</a>
@@ -68,15 +71,56 @@ function toggleAnswerDisplay() {
 
 function toggleBookmark() {
   const article = this.parentElement;
+
   article.classList.contains("article-fav")
     ? article.classList.remove("article-fav")
     : article.classList.add("article-fav");
+}
+
+function saveBookmarkState(questions) {
+  const article = this.parentElement;
+  console.log(
+    article,
+    article.getAttribute("q-id"),
+    questions[article.getAttribute("q-id")].bookmarked
+  );
+  return questions;
+}
+
+function displayFooter(target) {
+  target.innerHTML = `
+<menu>
+        <ul>
+          <a href="./index.html" aria-label="home">
+            <li>
+              <i class="fa-solid fa-house"></i>
+            </li>
+          </a>
+          <a href="./favs.html" aria-label="Favourites">
+            <li>
+              <i class="fas fa-bookmark"></i>
+            </li>
+          </a>
+          <a href="./form.html" aria-label="Add Question">
+            <li>
+              <i class="fas fa-circle-plus"></i>
+            </li>
+          </a>
+          <a href="./profile.html" aria-label="Profile">
+            <li>
+              <i class="fa-solid fa-user"></i></li
+          ></a>
+        </ul>
+      </menu>
+`;
 }
 
 export {
   loadQuestionsFromLocalStorage,
   saveQuestionsToLocalStorage,
   displayQuestions,
+  saveBookmarkState,
   toggleAnswerDisplay,
   toggleBookmark,
+  displayFooter,
 };
