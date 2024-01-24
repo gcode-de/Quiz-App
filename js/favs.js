@@ -10,8 +10,10 @@ import {
 
 displayFooter(document.body.querySelector("footer"));
 
+let questions = [];
+
 async function init() {
-  const questions = await loadQuestionsFromLocalStorage();
+  questions = await loadQuestionsFromLocalStorage();
   const mainDiv = document.querySelector("main");
   displayQuestions(
     questions.filter((q) => q.bookmarked),
@@ -25,7 +27,11 @@ async function init() {
 
   const bookmarkIcons = document.querySelectorAll(".bookmark");
   bookmarkIcons.forEach((icon) => {
-    icon.addEventListener("click", toggleBookmark);
+    icon.addEventListener("click", (event) => {
+      toggleBookmark(event);
+      questions = saveBookmarkState(event, questions);
+      saveQuestionsToLocalStorage(questions);
+    });
   });
 }
 
