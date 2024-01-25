@@ -29,7 +29,10 @@ addQuestionForm.addEventListener("submit", (event) => {
   data.bookmarked = false;
   data.addedByUser = true;
   data.tags = data.tags.trim()
-    ? data.tags.split(",").map((tag) => tag.trim())
+    ? data.tags
+        .split(",")
+        .map((tag) => tag.trim())
+        .filter((tag) => tag.length > 2)
     : "";
   console.log(data);
 
@@ -50,6 +53,7 @@ function addQuestionToQuestions(question) {
 
 //Textaera-Inputs inline validation
 const inputFields = addQuestionForm.querySelectorAll(".max150");
+const maxLength = 150;
 
 inputFields.forEach(function (field) {
   const span = field.nextElementSibling;
@@ -57,9 +61,10 @@ inputFields.forEach(function (field) {
     const typedCharacters = event.target.value.length;
     if (typedCharacters) {
       span.hidden = false;
-      span.textContent = `${150 - typedCharacters} characters left`;
+      span.textContent = `${maxLength - typedCharacters} characters left`;
     } else {
       span.hidden = true;
+      span.textContent = "";
     }
   });
 });

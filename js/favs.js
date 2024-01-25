@@ -32,7 +32,7 @@ async function init() {
       questions = saveBookmarkState(event, questions);
       saveQuestionsToLocalStorage(questions);
 
-      //refresh view
+      //reload page to represent changes
       location.reload();
     });
   });
