@@ -40,11 +40,11 @@ function saveQuestionsToLocalStorage(questions) {
 
 function displayQuestions(questions, target) {
   //generate tags
-  for (let question of questions) {
+  questions.forEach((question) => {
     let tagsHTML = "";
-    for (let tag of question.tags) {
+    question.tags.forEach((tag) => {
       tagsHTML += `<li class="tag">${tag}</li>`;
-    }
+    });
 
     target.innerHTML += `
     <article q-id="${question.id}" class="article ${
@@ -60,7 +60,7 @@ function displayQuestions(questions, target) {
         </ul>
       </article>
 `;
-  }
+  });
 }
 
 function toggleAnswerDisplay() {

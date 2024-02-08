@@ -55,15 +55,15 @@ function addQuestionToQuestions(question) {
 const inputFields = addQuestionForm.querySelectorAll(".max150");
 const maxLength = 150;
 
-inputFields.forEach(function (field) {
+inputFields.forEach((field) => {
   const span = field.nextElementSibling;
   field.addEventListener("input", (event) => {
     const typedCharacters = event.target.value.length;
     if (typedCharacters) {
-      span.hidden = false;
+      // span.hidden = false;
       span.textContent = `${maxLength - typedCharacters} characters left`;
     } else {
-      span.hidden = true;
+      // span.hidden = true;
       span.textContent = "";
     }
   });
